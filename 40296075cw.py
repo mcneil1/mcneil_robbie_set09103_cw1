@@ -5,6 +5,11 @@ app = Flask(__name__)
 def root():
 	return "Home page"
 
+@app.route("/genre/")
+def genre():
+	return render_template('genre.html')
+	
+
 @app.route("/hip_hop/")
 def artist():
 	return "Artist page"
@@ -14,7 +19,7 @@ def album():
 	return "Album page"
 
 @app.route("/RnB/")
-def genre():
+def rnb():
 	return "Genre page"
 
 @app.route("/indie_rock/")
@@ -120,6 +125,19 @@ def xx():
 	review="South London band The xx's debut album xx features somber moments, fantastic production, moody vocals, twangy guitar strings, big basslines and heart-wrenching lyrics at times. The xx certainly have a sound that is their own and they know that, accross the album there is surprisingly little filler over the 11 tracks, every song feels perfectly realised and tells it's own story. A lot of the themes on this album revolve around struggling in love, and depicts the members talking about previous loves, letting go of ones you love, and still needing someone who no longer needs you. It's a message that's not new but one that everyone can get behind. The album starts off strong which is a fantastic opening track which perfectly sets the tone of the album, Intro doesn't even have any lyrics but its a song I find myself relistening to. Some of the dreamiest moments come from songs like \'Stars\' and \'Fantasy\' which gives us some of the strangest melodies on the project with quiet floaty beats over some fantastic guitar strings. xx is a listening experience from start to finish, it's an easy listening album, none of the music is offensive, it's just a relaxing, chilled out album thats easy to listen to and is one of 2009's best debut albums."
 	return render_template('album.html',genre=genre,album=album,artist=artist,date=date,cover=cover,review=review,rating=rating,tracks=tracks,length=length,label=label)
 
+@app.route("/RnB/childish_gambino/awaken_my_love/")
+def awaken_my_love():
+	album="Awaken, My Love!"
+	artist="Childish Gambino"
+	date="02/12/2016"
+	rating="77/100"
+	label="Glassnote"
+	genre="R&B, Soul, Funk, Psychadelic"
+	length="48:57"
+	cover="https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Childish_Gambino_-_Awaken%2C_My_Love%21.png/220px-CHildish_Gambino_-_Awaken%2C_My_Love%21.png"
+	tracks=['Me and Your Mama','Have Some Love','Boggieman','Zombies','Riot','Redbone','California','Terrified','Baby Boy','The Night Me and Your Momma Met','Stand Tall']
+	review="Donald Glover, AKA Childish Gambino, makes an unexpected yet welcome transition into the world of R&B, Soul and Funk on his third album 'Awaken, My Love!'. Being compared to the likes on Prince on this album you quickly realise that this is not like Glovers' past two albums 'Camp' and 'Because the Internet' which are both deeply rooted in the hip-hop genre. Although his past albums did enjoy moderate success from critics and fans alike they did feel a bit stagnent and over the top at times. Here, on the other hand, Glover seems to fit in perfectly. The combination of Glovers fantastic vocal work mixed with dreamy, spacey, surreal background beats is almost heavenly at times. This makes for some very sweet and intimate moments on the album like on 'The Night Me and Your Momma Met' and the hit single 'Redbone' which seemed to take the world by storm, and for good reason. The song is one of Glovers best and shows how wide his vocal range is. Overall the album features great music production, even if the lyrics can feel lazy, tired and leave you wanting more, 'Awaken, My Love!' is still a very beautiful and dreamy album that truly shows that Donald Glover will seemingly succeed in every project he works on."
+	return render_template('album.html',genre=genre,album=album,artist=artist,date=date,cover=cover,review=review,rating=rating,tracks=tracks,length=length,label=label)
 
 
 if __name__ == "__main__":
