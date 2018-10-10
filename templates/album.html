@@ -1,0 +1,25 @@
+{% extends "header.html" %}
+{% block content %}
+<div style="padding:16px">
+<center><h1> {{album}} </h1>
+<h2>{{artist}}</h2></center>
+	
+		
+	<p id=imgwithcap><img src = {{cover}} />{{album}} cover art</p>
+	
+
+	<p><b>Release Date: </b> {{date}} </p>
+	<p><b>Genre: </b> {{genre}} </p>
+
+	<p><b>Overview: </b> {{review}} </p> 
+	<p><b>Rating: </b> {{rating}} </p> 
+	
+	<ol><p><b>Track List:</b></p>	
+		{% for track in tracks %}
+			<li>{{ track }}</li>
+		{% endfor %}
+	
+	</ol>
+	<p><b>Length: </b> {{length}} <p>
+	<p><b>Label: </b> {{label}} </p>
+{% endblock %}
