@@ -10,6 +10,11 @@ def genre():
 	ImageNo='25%'
 	return render_template('genre.html',ImageNo=ImageNo)
 	
+@app.route("/albums/")
+def albums():
+	return render_template('artistCat.html')
+	
+	
 
 @app.route("/hip_hop/")
 def artist():
