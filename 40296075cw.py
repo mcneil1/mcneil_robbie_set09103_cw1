@@ -13,19 +13,50 @@ def genre():
 
 @app.route("/hip_hop/")
 def artist():
-	return "Artist page"
+	ImageNo='50%'
+	artistA='BROCKHAMPTON'
+	artistAurl='http://set09103.napier.ac.uk:9159/hip_hop/brockhampton/'
+	artistAimg='https://ichef.bbci.co.uk/images/ic/960x540/p0611lld.jpg'
+	artistB='Kids See Ghosts'
+	artistBurl='http://set09103.napier.ac.uk:9159/hip_hop/kids_see_ghosts/'
+	artistBimg="https://static.spin.com/files/2018/06/pjimage-25-1528288965-640x360.jpg"
+	return render_template('genreArtist.html',ImageNo=ImageNo,artistA=artistA,artistAurl=artistAurl,artistAimg=artistAimg,artistB=artistB,artistBimg=artistBimg,artistBurl=artistBurl)
 
 @app.route("/house/")
 def album():
-	return "Album page"
+	ImageNo='50%'
+	artistA="Daft Punk"
+	artistAurl="http://set09103.napier.ac.uk:9159/house/daft_punk/"
+	artistAimg="https://pbs.twimg.com/media/C4Is4BWWAAEPopd.jpg"
+	artistB="Jamie xx"
+	artistBurl="http://set09103.napier.ac.uk:9159/house/jamie_xx/"
+	artistBimg="https://i.pinimg.com/originals/c0/75/1b/c0751b5f3b358d6313c791a694fe8b74.jpg"
+	return render_template('genreArtist.html',ImageNo=ImageNo,artistA=artistA,artistAurl=artistAurl,artistAimg=artistAimg,artistB=artistB,artistBimg=artistBimg,artistBurl=artistBurl)
 
 @app.route("/RnB/")
 def rnb():
-	return "Genre page"
+	ImageNo='50%'
+	artistA="Childish Gambino"
+	artistAurl="http://set09103.napier.ac.uk:9159/RnB/childish_gambino/"
+	artistAimg="https://www.allthingsgomusic.com/wp-content/uploads/2014/09/childish-atg.jpg"
+	artistB="Frank Ocean"
+	artistBurl="http://set09103.napier.ac.uk:9159/RnB/frank_ocean/"
+	artistBimg="https://pbs.twimg.com/media/C-MTyBvU0AAKGfR.jpg"
+	return render_template('genreArtist.html',ImageNo=ImageNo,artistA=artistA,artistAurl=artistAurl,artistAimg=artistAimg,artistB=artistB,artistBimg=artistBimg,artistBurl=artistBurl)
+
+	
 
 @app.route("/indie_rock/")
 def date():
-	return "Release date page"
+	ImageNo='50%'
+	artistA="The Strokes"
+	artistAurl="http://set09103.napier.ac.uk:9159/indie_rock/the_/strokes"
+	artistAimg="https://cdn.washingtoncitypaper.com/files/base/scomm/wcp/image/2015/04/960w/blogs_artsdesk_files_2015_04_strokes03pmvh110311.jpg"
+	artistB="The xx"
+	artistBurl="http://set09103.napier.ac.uk:9159/indie_rock/the_xx/"
+	artistBimg="https://cdn2.newsok.biz/cache/r960-f7da074f6c79b01de0b8cf9ab09942e6.jpg"
+	return render_template('genreArtist.html',ImageNo=ImageNo,artistA=artistA,artistAurl=artistAurl,artistAimg=artistAimg,artistB=artistB,artistBimg=artistBimg,artistBurl=artistBurl)
+	
 
 @app.route("/hip_hop/brockhampton/iridescence/")
 def iridescence():

@@ -1,0 +1,19 @@
+{% extends "header.html" %}
+{% block content %}
+
+<center><h1>Pick an Artist:</h1></center>
+<div class="row">
+	<div class="column">
+		<a href={{artistAurl}}><img src={{artistAimg}} style="width:100%"/></a>
+		<center><a href={{artistAurl}}>{{artistA}}</a></center>
+	</div>
+
+	<div class="column">
+		<a href={{artistBurl}}><img src={{artistBimg}} style="width:100%"/></a>
+		<center><a href={{artistBurl}}>{{artistB}}</a></center>
+	</div>
+</div>
+
+{% endblock %}
+
+
