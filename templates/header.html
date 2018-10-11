@@ -7,16 +7,13 @@
 	box-sizing: border-box;
 }
 
-.column {
-	float: left;
-	width: 25%;
-	padding: 5px;
+.row {
+	display: flex;
 }
 
-.row::after {
-	content:"";
-	clear: both;
-	display: table;
+.column {
+	flex: {{ImageNo}};
+	padding: 5px;
 }
 
 body {

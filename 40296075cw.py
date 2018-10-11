@@ -7,7 +7,8 @@ def root():
 
 @app.route("/genre/")
 def genre():
-	return render_template('genre.html')
+	ImageNo='25%'
+	return render_template('genre.html',ImageNo=ImageNo)
 	
 
 @app.route("/hip_hop/")
