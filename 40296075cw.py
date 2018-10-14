@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 app = Flask(__name__)
 
 @app.route("/")
@@ -8,11 +8,23 @@ def root():
 @app.route("/genre/")
 def genre():
 	ImageNo='25%'
-	return render_template('genre.html',ImageNo=ImageNo)
+	hiphop=url_for('static',filename='hiphop.jpg')
+	rock=url_for('static',filename='rock.jpg')
+	rnb=url_for('static',filename='rnb.jpg')
+	house=url_for('static',filename='house.jpg')
+	return render_template('genre.html',ImageNo=ImageNo,hiphop=hiphop,rock=rock,rnb=rnb,house=house)
 	
 @app.route("/albums/")
 def albums():
-	return render_template('artistCat.html')
+	iridescenceCover=url_for('static',filename='iridescence.jpg')
+	amlCover=url_for('static',filename='awakenMyLove.png')
+	aliveCover=url_for('static',filename='alive.jpg')
+	channelOrangeCover=url_for('static',filename='channelOrange.jpg')
+	inColourCover=url_for('static',filename='inColour.png')
+	ksgCover=url_for('static',filename='ksgSelfTitled.jpg')
+	isThisItCover=url_for('static',filename='isThisIt.png')
+	xxCover=url_for('static',filename='xx.png')
+	return render_template('artistCat.html',iridescenceCover=iridescenceCover,amlCover=amlCover,aliveCover=aliveCover,channelOrangeCover=channelOrangeCover,inColourCover=inColourCover,ksgCover=ksgCover,isThisItCover=isThisItCover,xxCover=xxCover)
 	
 	
 
@@ -21,10 +33,10 @@ def artist():
 	ImageNo='50%'
 	artistA='BROCKHAMPTON'
 	artistAurl='http://set09103.napier.ac.uk:9159/hip_hop/brockhampton/'
-	artistAimg='https://ichef.bbci.co.uk/images/ic/960x540/p0611lld.jpg'
+	artistAimg=url_for('static',filename='brokhampton.jpg')
 	artistB='Kids See Ghosts'
 	artistBurl='http://set09103.napier.ac.uk:9159/hip_hop/kids_see_ghosts/'
-	artistBimg="https://static.spin.com/files/2018/06/pjimage-25-1528288965-640x360.jpg"
+	artistBimg=url_for('static',filename='kidsSeeGhosts.jpg')
 	return render_template('genreArtist.html',ImageNo=ImageNo,artistA=artistA,artistAurl=artistAurl,artistAimg=artistAimg,artistB=artistB,artistBimg=artistBimg,artistBurl=artistBurl)
 
 @app.route("/house/")
@@ -32,10 +44,10 @@ def album():
 	ImageNo='50%'
 	artistA="Daft Punk"
 	artistAurl="http://set09103.napier.ac.uk:9159/house/daft_punk/"
-	artistAimg="https://pbs.twimg.com/media/C4Is4BWWAAEPopd.jpg"
+	artistAimg=url_for('static',filename='daftPunk.jpg')
 	artistB="Jamie xx"
 	artistBurl="http://set09103.napier.ac.uk:9159/house/jamie_xx/"
-	artistBimg="https://i.pinimg.com/originals/c0/75/1b/c0751b5f3b358d6313c791a694fe8b74.jpg"
+	artistBimg=url_for('static',filename='jamiexx.jpg')
 	return render_template('genreArtist.html',ImageNo=ImageNo,artistA=artistA,artistAurl=artistAurl,artistAimg=artistAimg,artistB=artistB,artistBimg=artistBimg,artistBurl=artistBurl)
 
 @app.route("/RnB/")
@@ -43,10 +55,10 @@ def rnb():
 	ImageNo='50%'
 	artistA="Childish Gambino"
 	artistAurl="http://set09103.napier.ac.uk:9159/RnB/childish_gambino/"
-	artistAimg="https://www.allthingsgomusic.com/wp-content/uploads/2014/09/childish-atg.jpg"
+	artistAimg=url_for('static',filename='childishGambino.jpg')
 	artistB="Frank Ocean"
 	artistBurl="http://set09103.napier.ac.uk:9159/RnB/frank_ocean/"
-	artistBimg="https://pbs.twimg.com/media/C-MTyBvU0AAKGfR.jpg"
+	artistBimg=url_for('static',filename='frankOcean.jpg')
 	return render_template('genreArtist.html',ImageNo=ImageNo,artistA=artistA,artistAurl=artistAurl,artistAimg=artistAimg,artistB=artistB,artistBimg=artistBimg,artistBurl=artistBurl)
 
 	
@@ -56,10 +68,10 @@ def date():
 	ImageNo='50%'
 	artistA="The Strokes"
 	artistAurl="http://set09103.napier.ac.uk:9159/indie_rock/the_/strokes"
-	artistAimg="https://cdn.washingtoncitypaper.com/files/base/scomm/wcp/image/2015/04/960w/blogs_artsdesk_files_2015_04_strokes03pmvh110311.jpg"
+	artistAimg=url_for('static',filename='theStrokes.jpg')
 	artistB="The xx"
 	artistBurl="http://set09103.napier.ac.uk:9159/indie_rock/the_xx/"
-	artistBimg="https://cdn2.newsok.biz/cache/r960-f7da074f6c79b01de0b8cf9ab09942e6.jpg"
+	artistBimg=url_for('static',filename='thexx.jpg')
 	return render_template('genreArtist.html',ImageNo=ImageNo,artistA=artistA,artistAurl=artistAurl,artistAimg=artistAimg,artistB=artistB,artistBimg=artistBimg,artistBurl=artistBurl)
 	
 
@@ -68,7 +80,7 @@ def iridescence():
 	album='iridescence'
 	artist='BROCKHAMPTON'
 	date='21/09/2108'
-	cover='https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/Brockhampton_Iridescence.jpg/220px-Brockhampton_Iridescence.jpg'
+	cover= url_for('static', filename='iridescence.jpg')
 	review='BROCKHAMPTON are back with their fourth studio album "iridescence", their first full length LP since 2017s SATURATION trilogy and the departure of founding member Ameer Vann.\n Iridescence features some gorgeous production value in comparison to some of their earlier work, this is no doubt due to the fact that iridescence was recorded at Abbey Road following their European tour this summer. As any BROCKHAMPTON fan will expect there is a variety of tracks on this album, some songs such as BERLIN feature loud, crunchy basslines with over the top lyrics, while other songs such as TONYA feature beautiful piano melodies and verses from the members. This album also talks about important topics like self-harm, depression and coming to terms with your sexuality. iridescence has some stand-out performances - particularly Joba who once again shows that he is the most versatile member of the group. Other stand out performances come from Merlyn who felt under utilised on past projects and Bearface who no longer feels forgotten and gets a lot more time in the spotlight this time round, he also shows some growth in terms of his material as he seems to be stepping into the rapping along with his other members. With that in mind other members don\'t feature as prominently as I would have liked such as Matt Champion who is one of the more technical and impressive lyricists within the band. Kevin Abstract also seems to have taken a step back on this album. iridescence marks a new trilogy for BROCKHAMPTON and boasts new sounds and ideas from the members, even if they don\'t always land.\n This album impresses me, especially once you learn that it was recorded in 10 days. BROCKHAMPTON show thier usual heart and spirit but in a slightly new way and it  is a step in the right direction for the boyband after their rollercoaster of a year, and hopefully the band can improve upon their new formula on the second and third installments of the Best Years of Our Lives trilogy.'
 	rating='86/100'
 	tracks=['NEW ORLEANS','THUG LIFE','BERLIN','SOMETHING ABOUT HIM','WHERE THE CASH AT','WEIGHT','DISTRICT','LOOPHOLE','TAPE','J\'OUVERT','HONEY','VIVID','SAN MARCOS','TONYA','FABRIC']
@@ -83,7 +95,7 @@ def alive():
 	album='Alive (2007)'
 	artist='Daft Punk'
 	date='19/11/2007'
-	cover='https://upload.wikimedia.org/wikipedia/en/thumb/4/49/Daft_Punk_Alive_2007.JPG/220px-Daft_Punk_Alive_2007.JPG'
+	cover=url_for('static', filename='alive.jpg')
 	rating='78/100'
 	length='74:04'
 	label='Virgin'
@@ -97,7 +109,7 @@ def orange():
 	album="Channel Orange"
 	artist="Frank Ocean"
 	date="10/07/2012"
-	cover="https://upload.wikimedia.org/wikipedia/en/thumb/2/28/Channel_ORANGE.jpg/220px-Channel_ORANGE.jpg"
+	cover=url_for('static', filename="channelOrange.jpg")
 	rating="92"
 	length="62:18"
 	label="Def Jam"
@@ -111,7 +123,7 @@ def in_colour():
 	album="In Colour"
 	artist="Jamie xx"
 	date="29/05/2015"
-	cover="http://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Jamie_xx_-_In_Colour.png/220px-Jamie_xx_-_In_Colour.png"
+	cover=url_for('static',filename='inColour.png')
 	rating="87/100"
 	length="43:44"
 	label="Young Turks"
@@ -125,7 +137,7 @@ def KSG():
 	album="Kids See Ghosts"
 	artist="Kids See Ghosts"
 	date="08/06/2018"
-	cover="https://upload.wikimedia.org/wikipedia/en/thumb/1/18/Kids_See_Ghost_Cover.jpg/220px-Kids_See_Ghost_Cover.jpg"
+	cover=url_for('static',filename='ksgSelfTitled.jpg')
 	rating="84/100"
 	length="23:53"
 	label="Def Jam"
@@ -143,7 +155,7 @@ def is_this_it():
 	length="36:28"
 	label="RCA"
 	genre="Indie Rock, Garage Rock Revival, Post-Punk Revival"
-	cover="https://upload.wikimedia.org/wikipedia/en/thumb/0/09/The_Strokes_-_Is_This_It_cover.png/220px-The_Strokes_-_Is_This_It_cover.png"
+	cover=url_for('static',filename='isThisIt.png')
 	tracks=['Is This It','The Modern Age','Some','Barely Legal','Someday','Alone, Together','Last Nite','Hard To Explain','New York City Cops','Trying Your Luck','Take It or Leave It']
 	review="The Strokes now iconic debut album is a must have album to own for any Rock fan. Julian Casablancas brings a certain charms and swagger to each song, the basslines are catchy, the drums make you want to tap your feet, and yes the theme of sex, drugs and rock & roll may have been done in the past, but theres something about Is This It which makes it refreshing. This album also contains some essential songs for anybodies music library, Last Nite is a classic, you recognise it as soon as it comes on, and the lyrics are catchy, it's siimply impossible not to sing and dance to. This album just oozes charisma, if you like a single Strokes song then you'll love Is This It. And although the familair themes and formulaic structure of some of the songs make the album feel trite at times you can't deny that it isn't an excellent album thats gone on to inspire many of todays indie rock artists. If you haven't already given this classic a spin then you should definitely add it to your queue, you won't regret it."
 	return render_template('album.html',genre=genre,album=album,artist=artist,date=date,cover=cover,review=review,rating=rating,tracks=tracks,length=length,label=label)
@@ -157,7 +169,7 @@ def xx():
 	label='Young Turks'
 	genre='Indie Rock, Indie Pop, Dream Pop'
 	length="38:28"
-	cover='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Xx_album_cover.svg/220px-Xx_album_cover.svg.png'
+	cover=url_for('static',filename='xx.png')
 	tracks=['Intro','VCR','Crystalised','Islands','Heart Skipped a Beat','Fantasy','Shelter','Basic Space','Infinity','Night Time','Stars']
 	review="South London band The xx's debut album xx features somber moments, fantastic production, moody vocals, twangy guitar strings, big basslines and heart-wrenching lyrics at times. The xx certainly have a sound that is their own and they know that, accross the album there is surprisingly little filler over the 11 tracks, every song feels perfectly realised and tells it's own story. A lot of the themes on this album revolve around struggling in love, and depicts the members talking about previous loves, letting go of ones you love, and still needing someone who no longer needs you. It's a message that's not new but one that everyone can get behind. The album starts off strong which is a fantastic opening track which perfectly sets the tone of the album, Intro doesn't even have any lyrics but its a song I find myself relistening to. Some of the dreamiest moments come from songs like \'Stars\' and \'Fantasy\' which gives us some of the strangest melodies on the project with quiet floaty beats over some fantastic guitar strings. xx is a listening experience from start to finish, it's an easy listening album, none of the music is offensive, it's just a relaxing, chilled out album thats easy to listen to and is one of 2009's best debut albums."
 	return render_template('album.html',genre=genre,album=album,artist=artist,date=date,cover=cover,review=review,rating=rating,tracks=tracks,length=length,label=label)
@@ -171,7 +183,7 @@ def awaken_my_love():
 	label="Glassnote"
 	genre="R&B, Soul, Funk, Psychadelic"
 	length="48:57"
-	cover="https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Childish_Gambino_-_Awaken%2C_My_Love%21.png/220px-CHildish_Gambino_-_Awaken%2C_My_Love%21.png"
+	cover=url_for('static',filename='awakenMyLove.png')
 	tracks=['Me and Your Mama','Have Some Love','Boggieman','Zombies','Riot','Redbone','California','Terrified','Baby Boy','The Night Me and Your Momma Met','Stand Tall']
 	review="Donald Glover, AKA Childish Gambino, makes an unexpected yet welcome transition into the world of R&B, Soul and Funk on his third album 'Awaken, My Love!'. Being compared to the likes on Prince on this album you quickly realise that this is not like Glovers' past two albums 'Camp' and 'Because the Internet' which are both deeply rooted in the hip-hop genre. Although his past albums did enjoy moderate success from critics and fans alike they did feel a bit stagnent and over the top at times. Here, on the other hand, Glover seems to fit in perfectly. The combination of Glovers fantastic vocal work mixed with dreamy, spacey, surreal background beats is almost heavenly at times. This makes for some very sweet and intimate moments on the album like on 'The Night Me and Your Momma Met' and the hit single 'Redbone' which seemed to take the world by storm, and for good reason. The song is one of Glovers best and shows how wide his vocal range is. Overall the album features great music production, even if the lyrics can feel lazy, tired and leave you wanting more, 'Awaken, My Love!' is still a very beautiful and dreamy album that truly shows that Donald Glover will seemingly succeed in every project he works on."
 	return render_template('album.html',genre=genre,album=album,artist=artist,date=date,cover=cover,review=review,rating=rating,tracks=tracks,length=length,label=label)
