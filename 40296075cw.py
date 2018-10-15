@@ -2,11 +2,7 @@ from flask import Flask, render_template, url_for, request, redirect, flash
 app = Flask(__name__)
 app.secret_key = 'secretkey'
 
-@app.route("/")
-def home():
-	return render_template('header.html',)
-
-@app.route("/login/", methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def login():
 	error= None
 	if request.method == 'POST':
@@ -24,7 +20,7 @@ def logout():
 @app.route('/success/')
 def success():
 	flash(u'Successfully logged in')
-	return redirect(url_for('home'))
+	return redirect(url_for('login'))
 
 @app.route("/genre/")
 def genre():

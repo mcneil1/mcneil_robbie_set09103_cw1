@@ -1,8 +1,14 @@
 {% extends "header.html" %}
 {% block content %}
 
+<div align="center" padding="10px">
+<button onclick=toggle_visibility()>Sign in</button>
+<button><a href="http://set09103.napier.ac.uk:9159/logout/">Sign out</a></button>
+</div>
+
+<div id="myDIV">
 <div class="container" align="center">
-	<h1>Please Login</h1>
+	<h1>Enter Details</h1>
 	<br>
 	<form action="" method="post">
 		<input type="text" placeholder="Username" name="username" value="{{ request.form.username }}">
@@ -13,5 +19,20 @@
 		<p class="error"><strong>Error:</strong> {{ error }}
 	{% endif %}
 </div>
+</div>
+
+<script type="text/javascript">
+
+toggle_visibility('myDIV')
+
+function toggle_visibility() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
 
 {% endblock content %}
