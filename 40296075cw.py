@@ -1,5 +1,6 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, flash
 app = Flask(__name__)
+app.secret_key = 'secretkey'
 
 @app.route("/")
 def home():
@@ -12,11 +13,17 @@ def login():
 		if request.form['username'] != 'admin' or request.form['password'] != 'admin':
 			error = 'Invalid Credentials. Please try again.'
 		else:
-			return redirect(url_for('home'))	
+			return redirect(url_for('success'))
 	return render_template('login.html', error=error)
 
 @app.route("/logout/")
-def louout():
+def logout():
+	flash(u'Successfully logged out')
+	return redirect(url_for('login'))
+
+@app.route('/success/')
+def success():
+	flash(u'Successfully logged in')
 	return redirect(url_for('home'))
 
 @app.route("/genre/")
