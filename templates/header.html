@@ -79,10 +79,15 @@ tr:nth-child(even) {
 }
 
 
-#login {
+.alert.login {
 	border-left: 6px solid green;
 	background-color: lightgreen;
 }
+.alert.logout {
+	border-left: 6px solid red;
+	background: tomato;
+}
+
 
 #myDIV {
     width: 100%;
@@ -103,11 +108,12 @@ tr:nth-child(even) {
 	<a href="http://set09103.napier.ac.uk:9159/albums/">Albums</a>
 </div>
 
-{% with messages = get_flashed_messages() %}
-	
-		{% for message in messages %}
-			<p id=login>{{ message | safe }}<p>
-		{% endfor %}`
+{% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+		{% for category, message in messages %}
+			<div class="alert {{ category }}">{{ message | safe }}</div>	
+		{% endfor %}
+	{% endif %}
 {% endwith %}
 
 	{% block content %} {% endblock %}

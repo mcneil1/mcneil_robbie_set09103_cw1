@@ -4,23 +4,27 @@ app.secret_key = 'secretkey'
 
 @app.route("/", methods=['GET', 'POST'])
 def login():
+	logo= url_for('static',filename='logo.jpg')
 	error= None
 	if request.method == 'POST':
 		if request.form['username'] != 'admin' or request.form['password'] != 'admin':
 			error = 'Invalid Credentials. Please try again.'
 		else:
 			return redirect(url_for('success'))
-	return render_template('login.html', error=error)
+	return render_template('login.html', error=error,logo=logo)
 
 @app.route("/logout/")
-def logout():
-	flash(u'Successfully logged out')
+def logout():	
+	flash('Successfully logged out','logout')	
 	return redirect(url_for('login'))
+
+
 
 @app.route('/success/')
 def success():
-	flash(u'Successfully logged in')
+	flash('Successfully logged in','login')
 	return redirect(url_for('login'))
+
 
 @app.route("/genre/")
 def genre():
@@ -28,7 +32,7 @@ def genre():
 	hiphop=url_for('static',filename='hiphop.jpg')
 	rock=url_for('static',filename='rock.jpg')
 	rnb=url_for('static',filename='rnb.jpg')
-	house=url_for('static',filename='house.jpg')
+	house=url_for('static',filename='house3.jpg')
 	return render_template('genre.html',ImageNo=ImageNo,hiphop=hiphop,rock=rock,rnb=rnb,house=house)
 	
 @app.route("/albums/")
