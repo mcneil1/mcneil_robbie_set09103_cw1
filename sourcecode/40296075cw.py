@@ -34,6 +34,7 @@ def genre():
 	rnb=url_for('static',filename='rnb.jpg')
 	house=url_for('static',filename='house3.jpg')
 	return render_template('genre.html',ImageNo=ImageNo,hiphop=hiphop,rock=rock,rnb=rnb,house=house)
+
 	
 @app.route("/albums/")
 def albums():
@@ -47,21 +48,33 @@ def albums():
 	xxCover=url_for('static',filename='xx.png')
 	return render_template('artistCat.html',iridescenceCover=iridescenceCover,amlCover=amlCover,aliveCover=aliveCover,channelOrangeCover=channelOrangeCover,inColourCover=inColourCover,ksgCover=ksgCover,isThisItCover=isThisItCover,xxCover=xxCover)
 	
-	
+
+@app.route("/artist/")
+def artist():
+	bh=url_for('static',filename='brockhampton.png')
+	cg=url_for('static',filename='childishGambino.jpg')
+	dp=url_for('static',filename='daftPunk.jpg')
+	ksg=url_for('static',filename='kidsseeghosts.jpg')
+	jxx=url_for('static',filename='jamiexx.jpg')
+	fo=url_for('static',filename='frankOcean.jpg')
+	ts=url_for('static',filename='theStrokes.jpg')
+	txx=url_for('static',filename='thexx.jpg')
+	ImageNo='25%'
+	return render_template('artist.html',ImageNo=ImageNo,bh=bh,cg=cg,ksg=ksg,txx=txx,ts=ts,fo=fo,dp=dp,jxx=jxx)
 
 @app.route("/genre/hip_hop/")
-def artist():
+def hiphop():
 	ImageNo='50%'
 	artistA='BROCKHAMPTON'
 	artistAurl='http://set09103.napier.ac.uk:9159/genre/hip_hop/brockhampton/'
-	artistAimg=url_for('static',filename='brockhampton.jpg')
+	artistAimg=url_for('static',filename='brockhampton.png')
 	artistB='Kids See Ghosts'
 	artistBurl='http://set09103.napier.ac.uk:9159/genre/hip_hop/kids_see_ghosts/'
-	artistBimg=url_for('static',filename='kidsSeeGhosts.jpg')
+	artistBimg=url_for('static',filename='kidsseeghosts.jpg')
 	return render_template('genreArtist.html',ImageNo=ImageNo,artistA=artistA,artistAurl=artistAurl,artistAimg=artistAimg,artistB=artistB,artistBimg=artistBimg,artistBurl=artistBurl)
 
 @app.route("/genre/house/")
-def album():
+def house():
 	ImageNo='50%'
 	artistA="Daft Punk"
 	artistAurl="http://set09103.napier.ac.uk:9159/genre/house/daft_punk/"
@@ -99,6 +112,7 @@ def date():
 
 	
 @app.route("/genre/hip_hop/brockhampton/")
+@app.route("/artist/brockhampton/")
 def brockhampton():
 	artistPic=url_for('static',filename='bhPic.jpg')
 	return render_template('bh.html',artistPic=artistPic)
@@ -122,6 +136,7 @@ def iridescence():
 
 
 @app.route("/genre/house/daft_punk/")
+@app.route("/artist/daft_punk/")
 def daftPunk():
 	artistPic=url_for('static',filename='daftPunkPic.jpg')
 	return render_template('daftpunk.html',artistPic=artistPic)
@@ -137,7 +152,7 @@ def alive():
 	length='74:04'
 	label='Virgin'
 	tracks=['Robot Rock / Oh Yeah','Touch It / Technologic','Television Rules the Nation / Crescendolls','Too Long / Steam Machine','Around the World / Harder, Better, Faster, Stronger','Burnin\' / Too Long','Face to Face / Short Circuit','One More Time / Aerodynamic','Aerodynamic Beats / Forget Around the World','The Prime Time of Your Life / The Brainwasher / Rollin\' & Scratchin\' / Alive','Da Funk / Daftendirekt','Superheroes / Human After All / Rock\'n Roll']
-	review='Daft Punk deliver one of the most iconic and unforgettable live albums of all time with Alive(2007). No dance artist is more well known and influential than Daft Punk, they boast a massive library of hit songs that even the most casual fans can sing and bop around to, but Alive is much more than just a dance album. The French duo manage to seamlessly blend a massive 26 songs into one continuous mashup. The sound of the crowd mixed with pumping bass lines, steady drumbeats and unforgettable lyrics make this one of Daft Punk\'s most memorable listens that you can revisit to time and time again. Old classics that you thought you knew get a breath of fresh air in Alive and each song is mixed and used flawlessly. Simply put that if you like to dance you will like this album, the old tracks make Alive a classic but the way they\'re used throughout the double LP make it abrand new experience as well. Daft Punk\,s Alive is dance music at it\'s very best.'
+	review='Daft Punk deliver one of the most iconic and unforgettable live albums of all time with Alive(2007). No dance artist is more well known and influential than Daft Punk, they boast a massive library of hit songs that even the most casual fans can sing and bop around to, but Alive is much more than just a dance album. The French duo manage to seamlessly blend a massive 26 songs into one continuous mashup. The sound of the crowd mixed with pumping bass lines, steady drumbeats and unforgettable lyrics make this one of Daft Punk\'s most memorable listens that you can revisit to time and time again. Old classics that you thought you knew get a breath of fresh air in Alive and each song is mixed and used flawlessly. Simply put that if you like to dance you will like this album, the old tracks make Alive a classic but the way they\'re used throughout the double LP make it a brand new experience as well. Daft Punk\'s Alive is dance music at it\'s very best.'
 	genre='House, French House'
 	return render_template('album.html',album=album,genre=genre, artist=artist,date=date,cover=cover,review=review,rating=rating,tracks=tracks,length=length,label=label)
 
@@ -145,6 +160,7 @@ def alive():
 
 
 @app.route("/genre/RnB/frank_ocean/")
+@app.route("/artist/frank_ocean/")
 def frankocean():
 	artistPic=url_for('static',filename="frankPic.png")
 	return render_template('frankocean.html',artistPic=artistPic)
@@ -167,6 +183,7 @@ def orange():
 
 
 @app.route('/genre/house/jamie_xx/')
+@app.route('/artist/jamie_xx/')
 def jamie_xx():
 	artistPic=url_for('static',filename="jamiexxPic.jpg")
 	return render_template('jamiexx.html',artistPic=artistPic)
@@ -189,6 +206,7 @@ def in_colour():
 
 
 @app.route("/genre/hip_hop/kids_see_ghosts/")
+@app.route("/artist/kids_see_ghosts/")
 def kidsSeeGhosts():
 	artistPic=url_for('static',filename='ksgPic.jpg')
 	return render_template('ksg.html',artistPic=artistPic)
@@ -211,6 +229,7 @@ def KSG():
 
 
 @app.route('/genre/indie_rock/the_strokes/')
+@app.route('/artist/the_strokes/')
 def strokes():
 	artistPic=url_for('static',filename='strokesPic.png')
 	return render_template('thestrokes.html',artistPic=artistPic)
@@ -234,6 +253,7 @@ def is_this_it():
 
 
 @app.route('/genre/indie_rock/the_xx/')
+@app.route('/artist/the_xx/')
 def thexx():
 	artistPic=url_for('static',filename="thexxPic.jpg")
 	return render_template('thexx.html',artistPic=artistPic)
@@ -258,6 +278,7 @@ def xx():
 
 
 @app.route('/genre/RnB/childish_gambino/')
+@app.route('/artist/childish_gambino/')
 def gambino():
 	artistPic=url_for('static',filename='gambinoPic.jpg')
 	return render_template('gambino.html',artistPic=artistPic)
