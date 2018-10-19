@@ -14,11 +14,21 @@
 	<p><b>Overview: </b> {{review}} </p> 
 	<p><b>Rating: </b> {{rating}} </p> 
 	
-	<ol><p><b>Track List:</b></p>	
-		{% for track in tracks %}
-			<li>{{ track }}</li>
-		{% endfor %}
+	<div style="width: 100%; overflow: hidden;">
+	<div style="width: 600px; float: left;">
+	        <b><p>Give it a try here:</p></b>
+        <iframe src= "{{spotify}}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+	</div>
+	<div style="margin-left: 620px;">
+	        <ol><p><b>Track List:</b></p>
+                {% for track in tracks %}
+                        <li>{{ track }}</li>
+                {% endfor %}
 	
+	</div>
+	</div>
+
 	</ol>
 	<p><b>Length: </b> {{length}} <p>
 	<p><b>Label: </b> {{label}} </p>
